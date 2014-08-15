@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns3="http://entites.reservation" xmlns:intf="http://reservation" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns4="http://arbre.reservation" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://dto.reservation" xmlns:tns2="http://objects.reservation" xmlns:impl="http://reservation" targetNamespace="http://reservation" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://reservation">
+      <xsd:import namespace="http://objects.reservation" />
+      <xsd:import namespace="http://entites.reservation" />
+      <xsd:import namespace="http://arbre.reservation" />
+      <xsd:import namespace="http://dto.reservation" />
+      <xsd:element name="update">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="chambreDTO" type="tns1:Formulaire" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOf_tns1_ReservationDTO">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns1:ReservationDTO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="updateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateReturn" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="obtenirListeClients">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="obtenirListeClientsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="obtenirListeClientsReturn" type="tns1:ClientDTO" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="obtenirReservations">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="idClient" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="obtenirReservationsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="obtenirReservationsReturn" type="tns1:ReservationDTO" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="obtenirListeChambre">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="obtenirListeChambreResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="obtenirListeChambreReturn" type="tns1:ChambreDTO" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://dto.reservation">
+      <xsd:import namespace="http://objects.reservation" />
+      <xsd:import namespace="http://entites.reservation" />
+      <xsd:import namespace="http://reservation" />
+      <xsd:import namespace="http://arbre.reservation" />
+      <xsd:complexType name="ChambreDTO">
+        <xsd:sequence>
+          <xsd:element name="numeroChambre" type="xsd:int" />
+          <xsd:element name="reservations" nillable="true" type="impl:ArrayOf_tns1_ReservationDTO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EntiteDTO">
+        <xsd:sequence>
+          <xsd:element name="reservations" nillable="true" type="impl:ArrayOf_tns1_ReservationDTO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ClientDTO">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns1:EntiteDTO">
+            <xsd:sequence>
+              <xsd:element name="client" nillable="true" type="tns2:Client" />
+              <xsd:element name="id" type="xsd:int" />
+              <xsd:element name="nom" nillable="true" type="xsd:string" />
+              <xsd:element name="prenom" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ReservationDTO">
+        <xsd:sequence>
+          <xsd:element name="arrivee" nillable="true" type="xsd:string" />
+          <xsd:element name="chambreDTO" nillable="true" type="tns1:ChambreDTO" />
+          <xsd:element name="clientDTO" nillable="true" type="tns1:ClientDTO" />
+          <xsd:element name="creation" nillable="true" type="xsd:string" />
+          <xsd:element name="depart" nillable="true" type="xsd:string" />
+          <xsd:element name="idReservation" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Formulaire">
+        <xsd:sequence>
+          <xsd:element name="dateModification" nillable="true" type="xsd:string" />
+          <xsd:element name="modifiant" type="xsd:int" />
+          <xsd:element name="reservation" nillable="true" type="tns1:ReservationDTO" />
+          <xsd:element name="type" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://arbre.reservation">
+      <xsd:import namespace="http://objects.reservation" />
+      <xsd:import namespace="http://entites.reservation" />
+      <xsd:import namespace="http://reservation" />
+      <xsd:import namespace="http://dto.reservation" />
+      <xsd:complexType name="ArbreBinaireReservations">
+        <xsd:sequence />
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://entites.reservation">
+      <xsd:import namespace="http://objects.reservation" />
+      <xsd:import namespace="http://reservation" />
+      <xsd:import namespace="http://arbre.reservation" />
+      <xsd:import namespace="http://dto.reservation" />
+      <xsd:complexType name="Entite">
+        <xsd:sequence>
+          <xsd:element name="reservations" nillable="true" type="tns4:ArbreBinaireReservations" />
+          <xsd:element name="reservationsArray" nillable="true" type="impl:ArrayOf_tns1_ReservationDTO" />
+          <xsd:element name="reservationsFromDTO" nillable="true" type="impl:ArrayOf_tns1_ReservationDTO" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://objects.reservation">
+      <xsd:import namespace="http://entites.reservation" />
+      <xsd:import namespace="http://reservation" />
+      <xsd:import namespace="http://arbre.reservation" />
+      <xsd:import namespace="http://dto.reservation" />
+      <xsd:complexType name="Client">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns3:Entite">
+            <xsd:sequence>
+              <xsd:element name="idClient" type="xsd:int" />
+              <xsd:element name="nom" nillable="true" type="xsd:string" />
+              <xsd:element name="prenom" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="obtenirReservationsResponse">
+    <wsdl:part name="parameters" element="impl:obtenirReservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRequest">
+    <wsdl:part name="parameters" element="impl:update" />
+  </wsdl:message>
+  <wsdl:message name="obtenirListeClientsResponse">
+    <wsdl:part name="parameters" element="impl:obtenirListeClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenirListeChambreResponse">
+    <wsdl:part name="parameters" element="impl:obtenirListeChambreResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenirListeClientsRequest">
+    <wsdl:part name="parameters" element="impl:obtenirListeClients" />
+  </wsdl:message>
+  <wsdl:message name="obtenirListeChambreRequest">
+    <wsdl:part name="parameters" element="impl:obtenirListeChambre" />
+  </wsdl:message>
+  <wsdl:message name="obtenirReservationsRequest">
+    <wsdl:part name="parameters" element="impl:obtenirReservations" />
+  </wsdl:message>
+  <wsdl:message name="updateResponse">
+    <wsdl:part name="parameters" element="impl:updateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FacadeServiceWeb">
+    <wsdl:operation name="update">
+      <wsdl:input name="updateRequest" message="impl:updateRequest" />
+      <wsdl:output name="updateResponse" message="impl:updateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenirListeClients">
+      <wsdl:input name="obtenirListeClientsRequest" message="impl:obtenirListeClientsRequest" />
+      <wsdl:output name="obtenirListeClientsResponse" message="impl:obtenirListeClientsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenirReservations">
+      <wsdl:input name="obtenirReservationsRequest" message="impl:obtenirReservationsRequest" />
+      <wsdl:output name="obtenirReservationsResponse" message="impl:obtenirReservationsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenirListeChambre">
+      <wsdl:input name="obtenirListeChambreRequest" message="impl:obtenirListeChambreRequest" />
+      <wsdl:output name="obtenirListeChambreResponse" message="impl:obtenirListeChambreResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FacadeServiceWebSoapBinding" type="impl:FacadeServiceWeb">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="update">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenirListeClients">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="obtenirListeClientsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="obtenirListeClientsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenirReservations">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="obtenirReservationsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="obtenirReservationsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenirListeChambre">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="obtenirListeChambreRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="obtenirListeChambreResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FacadeServiceWebService">
+    <wsdl:port name="FacadeServiceWeb" binding="impl:FacadeServiceWebSoapBinding">
+      <wsdlsoap:address location="http://localhost:8080/TestDynamique/services/FacadeServiceWeb" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

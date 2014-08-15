@@ -1,0 +1,86 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+WindowsApplication1
+</name>
+</assembly>
+<members>
+<member name="P:WindowsApplication1.ServiceHotel.Formulaire.dateModification">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.Formulaire.modifiant">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.Formulaire.reservation">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.Formulaire.type">
+	<remarks/>
+</member><member name="T:WindowsApplication1.ServiceHotel.Formulaire">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.ReservationDTO.arrivee">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.ReservationDTO.chambreDTO">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.ReservationDTO.clientDTO">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.ReservationDTO.creation">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.ReservationDTO.depart">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.ReservationDTO.idReservation">
+	<remarks/>
+</member><member name="T:WindowsApplication1.ServiceHotel.ReservationDTO">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.ChambreDTO.numeroChambre">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.ChambreDTO.reservations">
+	<remarks/>
+</member><member name="T:WindowsApplication1.ServiceHotel.ChambreDTO">
+	<remarks/>
+</member><member name="T:WindowsApplication1.ServiceHotel.ArbreBinaireReservations">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.Entite.reservations">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.Entite.reservationsArray">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.Entite.reservationsFromDTO">
+	<remarks/>
+</member><member name="T:WindowsApplication1.ServiceHotel.Entite">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.Client.idClient">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.Client.nom">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.Client.prenom">
+	<remarks/>
+</member><member name="T:WindowsApplication1.ServiceHotel.Client">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.EntiteDTO.reservations">
+	<remarks/>
+</member><member name="T:WindowsApplication1.ServiceHotel.EntiteDTO">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.ClientDTO.client">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.ClientDTO.id">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.ClientDTO.nom">
+	<remarks/>
+</member><member name="P:WindowsApplication1.ServiceHotel.ClientDTO.prenom">
+	<remarks/>
+</member><member name="T:WindowsApplication1.ServiceHotel.ClientDTO">
+	<remarks/>
+</member><member name="P:WindowsApplication1.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:WindowsApplication1.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:WindowsApplication1.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>
